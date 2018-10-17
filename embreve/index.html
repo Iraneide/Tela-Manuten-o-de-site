@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Sistema Web</title>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="../css/animate.css" />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7COpen+Sans:300,400' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" />
+/
+
+</head>
+<body>
+<div class="section-main" id="top">
+  <div class="mini-container main-mini-container">
+    <div class="title">
+      <div class="header"> <img src="../images/logo1.png" class="logo" alt="" />
+        <h1>Sistema Web</h1>
+        Em breve estaremos no ar PROGRAMADORA IRANEIDE<br />
+       
+      </div>
+      <div class="content">
+        <div id="countdown">
+          <div class="countdown-elem elem-days">
+            <h2 class="days">00</h2>
+            <span class="time_Days">dias</span></div>
+          <div class="countdown-elem elem-hours">
+            <h2 class="hours">00</h2>
+            <span class="time_Hours">horas</span></div>
+          <div class="countdown-elem elem-minutes">
+            <h2 class="minutes">00</h2>
+            <span class="time_Minutes">minutos</span></div>
+          <div class="countdown-elem elem-seconds">
+            <h2 class="seconds">00</h2>
+            <span class="time_Seconds">segundos</span></div>
+        </div>
+        <div class="navigation"> <a class="nav-button" onclick="showSection('section-subscribe')">Avise me</a> 
+        <a class="nav-button" onclick="showSection('section-contact')">Contato</a></div>
+        <div class="social-nav"> <a href="#" class="social-button"><i class="fa fa-fw fa-twitter"></i></a> <a href="#" class="social-button"><i class="fa fa-fw fa-facebook"></i></a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="videoMuteButton" onclick="$('#bgndVideo').toggleVolume(); $('.videoButton.notmuted').toggleClass('mute');">
+    <div class="videoButton notmuted"><i class="fa fa-volume-up"></i></div>
+    <div class="videoButton muted"><i class="fa fa-volume-off"></i></div>
+  </div>
+</div>
+<div class="scrollsection section-subscribe">
+  <div class="mini-container">
+    <div class="header"> <a class="nav-button" onclick="closeSection('section-subscribe')">fechar</a>
+      <h2>Avise me</h2>
+    </div>
+    <div class="content">
+      <p>Informe o seu e-mail, avisaremos assim que o nosso site entrar no ar!</p>
+      <div class="subscribe">
+        <form id="newsletter-signup" action="#" method="post">
+          <input type="email" class="enteremail" name="signup-email" placeholder="Insira o seu e-mail" spellcheck="false" />
+          <button type="submit" id="signup-button" class="signup-button"><i class="fa fa-check"></i></button>
+          <div id="signup-response" class="signup"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scrollsection section-contact">
+  <div class="mini-container">
+    <div class="header"> <a class="nav-button" onclick="closeSection('section-contact')">fechar</a>
+      <h2>Contato</h2>
+    </div>
+    <div class="content">
+      <div class="contact-box-container">
+        <div class="contact-box left">
+          <p>Para mais informações:</p>
+          <ul>
+            <!--<li><i class="fa fa-fw fa-map-marker"></i>123 Some Street, Some City, UK</li>-->
+            <li><i class="fa fa-fw fa-phone"></i>61 98115-9344</li>
+            <li><i class="fa fa-fw fa-envelope-o"></i><a href="mailto:">iraneide.ti@gmail.com</a></li>
+            <!--<li><i class="fa fa-fw fa-globe"></i><a href="#">mycompanyname.com</a></li>-->
+          </ul>
+        </div>
+        <div class="contact-box-spacer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<a id="bgndVideo" class="player"></a>
+<div class="page-loading">
+  <noscript>
+  <div class="noscript-error"><i class="fa fa-info-circle"></i>JavaScript off.</div>
+  </noscript>
+  <div class="square-loader-wrap">
+    <div class="square-loader"></div>
+    <div class="square-loader"></div>
+    <div class="square-loader"></div>
+    <div class="square-loader"></div>
+  </div>
+</div>
+<script type="text/javascript" src="../js/jquery.js"></script> 
+<script type="text/javascript" src="custom.js"></script> 
+<script type="text/javascript" src="../js/finely.js"></script> 
+<script type="text/javascript" src="../js/countdown.js"></script> 
+<script type="text/javascript" src="../js/emailsubscribe.js"></script> 
+<script type="text/javascript" src="../js/contact.js"></script> 
+<script type="text/javascript" src="../js/jquery.backstretch.min.js"></script> 
+<script type="text/javascript" src="../js/jquery.mb.YTPlayer.js"></script> 
+<script type="text/javascript" src="../js/placeholders.min.js"></script> 
+<script type="text/javascript">
+$(document).ready(function(){
+	if(videoBackground=='on'){
+		if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){$(".player").hide();$.backstretch(slideshowBackgroundURLS,{fade:slideshowFade,duration:slideshowDuration});$('.backstretch img').load(function(){if(preloader=='on'){$('.page-loading').delay(1500).fadeOut(1000,function(){animateInStart();});} else{animateInStart();}});} else{$(".player").mb_YTPlayer({videoURL:videoBackgroundURL,containment:'body',autoPlay:true,mute:videoMuted,startAt:0,opacity:1});$('#bgndVideo').on("YTPStart",function(){if(preloader=='on'){$('.page-loading').delay(1500).fadeOut(1000,function(){animateInStart();});} else{animateInStart();}});if(videoMuted==false){$('.videoMuteButton').show();}}} else{$.backstretch(slideshowBackgroundURLS,{fade:slideshowFade,duration:slideshowDuration});$('.backstretch img').load(function(){if(preloader=='on'){$('.page-loading').delay(1500).fadeOut(1000,function(){animateInStart();});} else{animateInStart();}});} $("#countdown").countdown({date:countdownDate});if($(window).width()<599){$('.about-container .about-box-spacer').css('height','1px');} else{var ieAboutSpacerHeight=$('.about-box-text').height()+'px';$('.about-container .about-box-spacer').css('height',ieAboutSpacerHeight);}});</script>
+</body>
+
+
+</html>
